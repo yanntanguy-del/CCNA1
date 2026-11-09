@@ -1,1 +1,66 @@
 Proccessus de création :
+
+## 09/11/2026 ##
+Etape 1 : Vlan et Trunks :
+
+Commande utilisé pour la création des Vlans et des Trunks :
+
+Switch 0 dans le CLI : 
+
+enable
+configure terminal
+hostname Switch0
+vlan 10
+name ETUDIANTS
+vlan 20
+name ADMIN
+vlan 30
+name SERVEURS
+exit
+interface fa0/1
+no shutdown
+switchport mode access
+switchport access vlan 10
+interface fa0/7
+no shutdown
+switchport mode access
+switchport access vlan 30
+interface range gig0/1-2
+no shutdown
+switchport mode trunk
+interface fa0/24
+no shutdown
+switchport mode trunk
+end
+write
+
+Switch 0 dans le CLI : 
+
+enable
+configure terminal
+hostname Switch1
+vlan 10
+name ETUDIANTS
+vlan 20
+name ADMIN
+vlan 30
+name SERVEURS
+exit
+interface fa0/1
+no shutdown
+switchport mode access
+switchport access vlan 10
+interface fa0/2
+no shutdown
+switchport mode access
+switchport access vlan 20
+interface gig0/1
+no shutdown
+switchport mode trunk
+interface fa0/24
+no shutdown
+switchport mode trunk
+end
+write
+
+Source : https://ipcisco.com/lesson/vlan-configuration-on-cisco-packet-tracer/
