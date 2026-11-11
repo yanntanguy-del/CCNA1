@@ -64,3 +64,46 @@ end
 write
 
 Source : https://ipcisco.com/lesson/vlan-configuration-on-cisco-packet-tracer/
+
+
+##10/11/2026##
+Etape 2 : STP :
+
+Commande utilisé pour la création du stp :
+
+Switch 0 dans le CLI :
+
+enable
+configure terminal
+spanning-tree mode rapid-pvst
+spanning-tree vlan 10,20,30 root primary
+interface fa0/1
+no shutdown
+spanning-tree portfast
+spanning-tree bpduguard enable
+interface fa0/7
+no shutdown
+spanning-tree portfast
+spanning-tree bpduguard enable
+end
+write
+
+Switch 1 dans le CLI :
+
+enable
+configure terminal
+spanning-tree mode rapid-pvst
+spanning-tree vlan 10,20,30 root secondary
+interface fa0/1
+no shutdown
+spanning-tree portfast
+spanning-tree bpduguard enable
+interface fa0/2
+no shutdown
+spanning-tree portfast
+spanning-tree bpduguard enable
+end
+write
+
+source : https://computingforgeeks.com/cisco-spanning-tree-protocol-configuration/
+
