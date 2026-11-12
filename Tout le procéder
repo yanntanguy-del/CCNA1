@@ -64,7 +64,7 @@ write
 
 Source : https://ipcisco.com/lesson/vlan-configuration-on-cisco-packet-tracer/
 
-
+-----------------------------------------------------------------------------------------------------------------------------
 ##10/11/2026##
 Etape 2 : STP :
 
@@ -106,6 +106,7 @@ write
 
 source : https://computingforgeeks.com/cisco-spanning-tree-protocol-configuration/
 
+-----------------------------------------------------------------------------------------------------------------------------
 ##12/11/2026##
 Etape 3 : Interfaces et routage inter-VLAN :
 
@@ -129,3 +130,35 @@ end
 write
 
 source : https://sysnettechsolutions.com/en/configure-inter-vlan-routing-in-cisco-packet-tracer
+
+-----------------------------------------------------------------------------------------------------------------------------
+Etape 4 : Adresser les routeurs (Internet et DMZ) :
+
+Routeur 0 dans le CLI :
+
+enable
+configure terminal
+interface g0/0
+no shutdown
+ip address 203.0.113.1 255.255.255.252
+interface g0/2
+no shutdown
+ip address 172.16.0.1 255.255.255.0
+end
+write
+
+Routeur 1 dans le CLI :
+
+enable
+configure terminal
+hostname Router1
+interface g0/0
+no shutdown
+ip address 203.0.113.2 255.255.255.252
+interface g0/1
+no shutdown
+ip address 8.8.8.1 255.255.255.0
+end
+write
+
+source : https://www.geeksforgeeks.org/?p=662702 :
